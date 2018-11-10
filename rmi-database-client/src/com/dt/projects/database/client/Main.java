@@ -6,6 +6,7 @@
 package com.dt.projects.database.client;
 
 import com.dt.projects.database.api.entity.Menu;
+import com.dt.projects.database.api.services.LoginService;
 import com.dt.projects.database.api.services.MenuService;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -23,12 +24,14 @@ import javafx.stage.Stage;
 public class Main extends Application{
 
     private MenuService menuService;
+    private LoginService loginService;
     @Override
     public void start(Stage stage) throws Exception {
         
         Registry registry = LocateRegistry.getRegistry("localhost", 52360);
         
-        menuService = (MenuService) registry.lookup("service");
+        //menuService = (MenuService) registry.lookup("service");
+        loginService = (LoginService) registry.lookup("service");
         
         /*Menu m = new Menu();
          m.setItem_name("Chicken Biryani boneless");
@@ -45,12 +48,12 @@ public class Main extends Application{
         loader.setController(new MainController(path));
         Pane mainPane = loader.load();*/
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("form.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
         //loader.setController(new FormController()); 
         
         Parent root = loader.load();
         
-        FormController controller = loader.getController();
+        LoginController controller = loader.getController();
         
         controller.setMain(this);
         
@@ -64,6 +67,11 @@ public class Main extends Application{
     public MenuService getMenuService()
     {
         return menuService;
+    }
+    
+    public LoginService getLoginService()
+    {
+        return loginService;
     }
     
     public static void main(String[] args) {
