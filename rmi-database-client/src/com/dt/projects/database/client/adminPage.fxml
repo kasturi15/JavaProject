@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="466.0" prefWidth="691.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.dt.projects.client.AdminPageController">
+   <children>
+      <TabPane layoutY="60.0" prefHeight="31.0" prefWidth="693.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab onSelectionChanged="#onStaff" text="STAFF">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </Tab>
+          <Tab onSelectionChanged="#onCustomer" text="CUSTOMER" />
+            <Tab onSelectionChanged="#onMenu" text="MENU" />
+            <Tab onSelectionChanged="#onBill" text="BILL SUMMARY" />
+            <Tab onSelectionChanged="#onLogout" text="LOGOUT" />
+        </tabs>
+      </TabPane>
+      <Label layoutX="2.0" prefHeight="50.0" prefWidth="691.0" text="               ADMIN CONTROL">
+         <font>
+            <Font name="Cambria Bold Italic" size="48.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.6" centerY="0.4714285714285714" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#0bb6e1" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Separator layoutX="190.0" layoutY="50.0" prefHeight="10.0" prefWidth="315.0" />
+   </children>
+</AnchorPane>

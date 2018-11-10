@@ -28,38 +28,15 @@ public class Main extends Application{
     @Override
     public void start(Stage stage) throws Exception {
         
-        Registry registry = LocateRegistry.getRegistry("localhost", 52360);
+        /*Registry registry = LocateRegistry.getRegistry("localhost", 52360);
         
-        //menuService = (MenuService) registry.lookup("service");
-        loginService = (LoginService) registry.lookup("service");
+        menuService = (MenuService) registry.lookup("service");
+        loginService = (LoginService) registry.lookup("service");*/
         
-        /*Menu m = new Menu();
-         m.setItem_name("Chicken Biryani boneless");
-         m.setItem_type("Non-Veg");
-         m.setItem_price(225);
-         
-         m = menuService.insertMenu(m);
-         
-         System.out.println(m.getItem_Id());
-         System.out.println(m.getItem_name());*/
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene scene = new Scene(root);
         
-        
-        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
-        loader.setController(new MainController(path));
-        Pane mainPane = loader.load();*/
-        
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
-        //loader.setController(new FormController()); 
-        
-        Parent root = loader.load();
-        
-        LoginController controller = loader.getController();
-        
-        controller.setMain(this);
-        
-        stage.setScene(new Scene(root));
-        
-        stage.setTitle("Menu");
+        stage.setScene(scene);
         stage.show();
         
     }

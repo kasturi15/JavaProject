@@ -6,9 +6,12 @@
 package com.dt.projects.database.client;
 
 import com.dt.projects.database.api.entity.Menu;
+import com.dt.projects.database.api.services.LoginService;
 import com.dt.projects.database.api.services.MenuService;
 import java.net.URL;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,17 +53,20 @@ public class FormController implements Initializable {
     @FXML
     private TableColumn<Menu, Integer> colRate;
     
+    private LoginController controller;
     private Main main;
-    
     private MenuService menuService;
 
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
+     * @throws java.rmi.RemoteException
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        onStart();
         colId.setCellValueFactory(new PropertyValueFactory<>("item_id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("item_name"));
         colType.setCellValueFactory(new PropertyValueFactory<>("item_type"));
@@ -185,6 +191,23 @@ public class FormController implements Initializable {
     {
         this.main = main;
         this.menuService = main.getMenuService();
+        
+        try {
+            tableView.getItems().setAll(menuService.getAllMenu());
+        } catch (RemoteException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void onStart()
+    {
+        Registry registry;
+        try {
+            registry = LocateRegistry.getRegistry("localhost", 52360);
+            menuService = (MenuService) registry.lookup("menuservice");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         
         try {
             tableView.getItems().setAll(menuService.getAllMenu());

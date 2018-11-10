@@ -37,7 +37,6 @@
             <Button layoutX="242.0" layoutY="48.0" mnemonicParsing="false" onAction="#onUpdate" text="Update" />
             <Button layoutX="268.0" layoutY="48.0" mnemonicParsing="false" onAction="#onDelete" text="Delete" />
             <Button layoutX="294.0" layoutY="48.0" mnemonicParsing="false" onAction="#onRefresh" text="Refresh" />
-            <Button mnemonicParsing="false" onAction="#onBack" text="Back" />
          </children>
       </HBox>
       <TableView fx:id="tableView" layoutX="39.0" layoutY="276.0" prefHeight="200.0" prefWidth="521.0">
