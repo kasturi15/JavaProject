@@ -111,7 +111,7 @@ public class Staff implements Externalizable{
         out.writeObject(getStaff_id());
         out.writeObject(getStaff_name());
         out.writeObject(getStaff_pass());
-        out.writeObject(getStaff_pass());
+        out.writeObject(getStaff_email());
         out.writeInt(getStaff_no());
         out.writeInt(getSalary());
     }
@@ -119,8 +119,8 @@ public class Staff implements Externalizable{
     @Override
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
         setStaff_id((String)in.readObject());
-        setStaff_pass((String)in.readObject());
         setStaff_name((String)in.readObject());
+        setStaff_pass((String)in.readObject());       
         setStaff_email((String)in.readObject());
         setStaff_no(in.readInt());
         setSalary(in.readInt());
