@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="612.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dt.projects.database.client.StaffController">
+   <children>
+      <Label graphicTextGap="3.0" layoutX="24.0" layoutY="94.0" lineSpacing="7.0" prefHeight="17.0" prefWidth="103.0" text="PASSWORD" />
+      <Separator prefWidth="200.0" />
+      <Label graphicTextGap="3.0" layoutX="24.0" layoutY="25.0" lineSpacing="7.0" prefHeight="17.0" prefWidth="109.0" text="NAME" />
+      <Label graphicTextGap="3.0" layoutX="24.0" layoutY="59.0" lineSpacing="7.0" prefHeight="17.0" prefWidth="109.0" text="ID" />
+      <Label graphicTextGap="3.0" layoutX="24.0" layoutY="130.0" lineSpacing="7.0" prefHeight="17.0" prefWidth="103.0" text="E-MAIL ID" />
+      <Label graphicTextGap="3.0" layoutX="24.0" layoutY="169.0" lineSpacing="7.0" prefHeight="17.0" prefWidth="103.0" text="PHONE NO." />
+      <Label graphicTextGap="3.0" layoutX="24.0" layoutY="207.0" lineSpacing="7.0" prefHeight="17.0" prefWidth="103.0" text="SALARY" />
+      <Button layoutX="524.0" layoutY="21.0" mnemonicParsing="false" onAction="#onInsertStaff" prefHeight="25.0" prefWidth="67.0" text="INSERT" underline="true" />
+      <Button layoutX="524.0" layoutY="78.0" mnemonicParsing="false" onAction="#onDeleteStaff" prefHeight="25.0" prefWidth="67.0" text="DELETE" underline="true" />
+      <Button layoutX="524.0" layoutY="135.0" mnemonicParsing="false" onAction="#onUpdateStaff" prefHeight="25.0" prefWidth="67.0" text="UPDATE" underline="true" />
+      <Button layoutX="524.0" layoutY="191.0" mnemonicParsing="false" onAction="#onRefreshStaff" prefHeight="25.0" prefWidth="67.0" text="REFRESH" underline="true" />
+      <TextField fx:id="txtstaffname" layoutX="166.0" layoutY="21.0" prefHeight="25.0" prefWidth="253.0" />
+      <TextField fx:id="txtstaffid" layoutX="166.0" layoutY="55.0" prefHeight="25.0" prefWidth="253.0" />
+      <TextField fx:id="txtstaffpass" layoutX="166.0" layoutY="90.0" prefHeight="25.0" prefWidth="253.0" />
+      <TextField fx:id="txtemail" layoutX="166.0" layoutY="126.0" prefHeight="25.0" prefWidth="253.0" />
+      <TextField fx:id="txtno" layoutX="166.0" layoutY="165.0" prefHeight="25.0" prefWidth="253.0" />
+      <TextField fx:id="txtsalary" layoutX="166.0" layoutY="203.0" prefHeight="25.0" prefWidth="253.0" />
+      <TableView fx:id="tableView" layoutX="-1.0" layoutY="252.0" prefHeight="360.0" prefWidth="645.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="78.0" text="ID" />
+          <TableColumn fx:id="colname" prefWidth="103.0" text="NAME" />
+            <TableColumn fx:id="colpass" prefWidth="93.0" text="PASSWORD" />
+            <TableColumn fx:id="colemail" prefWidth="177.0" text="E-MAIL" />
+            <TableColumn fx:id="colphone" prefWidth="116.0" text="PHONE NO." />
+            <TableColumn fx:id="colsalary" prefWidth="77.0" text="SALARY" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

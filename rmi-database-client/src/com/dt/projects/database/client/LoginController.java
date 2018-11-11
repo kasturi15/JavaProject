@@ -75,7 +75,7 @@ public class LoginController implements Initializable {
 
                 if(result)
                 {
-                    AnchorPane pane = FXMLLoader.load(getClass().getResource("form.fxml"));
+                    AnchorPane pane = FXMLLoader.load(getClass().getResource("adminPage.fxml"));
                     loginPage.getChildren().setAll(pane);
                     
                     /*Alert alert = new Alert(Alert.AlertType.WARNING);
