@@ -8,6 +8,7 @@ package com.dt.projects.database.server;
 import com.dt.projects.database.api.services.MenuService;
 import com.dt.projects.server.services.LoginServiceImpl;
 import com.dt.projects.server.services.MenuServiceImpl;
+import com.dt.projects.server.services.StaffServiceImpl;
 import com.dt.projects.server.utilities.DatabaseConnection;
 import java.rmi.Remote;
 import java.rmi.registry.LocateRegistry;
@@ -33,11 +34,13 @@ public class Main extends Application {
         
         MenuServiceImpl menuServiceImpl = new MenuServiceImpl();
         LoginServiceImpl loginServiceImpl = new LoginServiceImpl();
+        StaffServiceImpl staffServiceImpl = new StaffServiceImpl();
         
         //MenuService menuService = (MenuService) UnicastRemoteObject.exportObject(menuServiceImpl,0);
         
         registry.rebind("menuservice", menuServiceImpl);
         registry.rebind("service", loginServiceImpl);
+        registry.rebind("staffservice", staffServiceImpl);
         System.out.println("Server is running");
     }
     
