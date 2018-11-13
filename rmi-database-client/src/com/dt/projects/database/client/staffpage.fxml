@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="adminPane" prefHeight="720.0" prefWidth="1376.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dt.projects.database.client.StaffpageController">
+   <children>
+      <Pane layoutX="106.0" layoutY="100.0" prefHeight="720.0" prefWidth="1386.0" style="-fx-background-color: #48d1cc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="108.0" prefWidth="1372.0" style="-fx-background-color: #808080;">
+               <children>
+                  <Label alignment="CENTER" layoutX="341.0" layoutY="15.0" prefHeight="69.0" prefWidth="568.0" text="Staff Controller" textFill="#ddf0f8">
+                     <font>
+                        <Font name="Cambria Bold Italic" size="65.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="1311.0" layoutY="-41.0" prefHeight="69.0" prefWidth="66.0" style="-fx-background-color: #48d1cc;" />
+                  <Pane layoutX="1211.0" layoutY="-19.0" prefHeight="45.0" prefWidth="94.0" style="-fx-background-color: #ff7f50;" />
+                  <Pane layoutX="1258.0" layoutY="35.0" prefHeight="34.0" prefWidth="117.0" style="-fx-background-color: #ffd700;" />
+                  <Pane layoutX="1292.0" layoutY="77.0" prefHeight="32.0" prefWidth="79.0" style="-fx-background-color: #adff2f;" />
+                  <Pane layoutX="-35.0" layoutY="-14.0" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #48d1cc;" />
+                  <Pane layoutX="61.0" layoutY="-16.0" prefHeight="34.0" prefWidth="108.0" style="-fx-background-color: #ff7f50;" />
+                  <Pane layoutX="-8.0" layoutY="28.0" prefHeight="45.0" prefWidth="123.0" style="-fx-background-color: ffd700;" />
+                  <Separator layoutX="414.0" layoutY="87.0" prefHeight="16.0" prefWidth="418.0" />
+                  <Pane layoutX="-1.0" layoutY="80.0" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #adff2f;" />
+               </children>
+            </Pane>
+            <TabPane layoutY="108.0" prefHeight="34.0" prefWidth="1285.0" style="-fx-background-color: #48d1cc;" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab onSelectionChanged="#onTakeOrder" style="-fx-background-color: #808080;" text="     TAKE ORDER     " />
+                <Tab onSelectionChanged="#onPendingOrder" style="-fx-background-color: #808080;" text="     PENDING ORDER     " />
+                  <Tab onSelectionChanged="#onBill" style="-fx-background-color: #808080;" text="       BILL SUMMARY       " />
+              </tabs>
+            </TabPane>
+            <Button layoutX="1280.0" layoutY="107.0" mnemonicParsing="false" onAction="#onLogout" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: #000000;" text="LOGOUT" textFill="#f80202">
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font>
+            </Button>
+            <Pane fx:id="adminStage" layoutX="2.0" layoutY="136.0" prefHeight="583.0" prefWidth="1387.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

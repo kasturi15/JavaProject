@@ -37,8 +37,7 @@ public class LoginController implements Initializable {
     @FXML
     private TextField txtlogid;
     @FXML
-    private PasswordField txtpass;
-    
+    private TextField txtpass;
     @FXML
     private AnchorPane loginPage;
     
@@ -75,10 +74,19 @@ public class LoginController implements Initializable {
 
                 if(result)
                 {
-                    AnchorPane pane = FXMLLoader.load(getClass().getResource("adminPage.fxml"));
-                    loginPage.getChildren().setAll(pane);
+                    if("admin".equals(txtlogid.getText()) && "admin".equals(txtpass.getText()))
+                    {
+                        AnchorPane pane = FXMLLoader.load(getClass().getResource("adminpage.fxml"));
+                        loginPage.getChildren().setAll(pane);
+                    }
+                    else
+                    {
+                        AnchorPane pane = FXMLLoader.load(getClass().getResource("staffpage.fxml"));
+                        loginPage.getChildren().setAll(pane);
+                    }
                     
-                    /*Alert alert = new Alert(Alert.AlertType.WARNING);
+                    
+                   /* Alert alert = new Alert(Alert.AlertType.WARNING);
                     alert.initModality(Modality.APPLICATION_MODAL);
                     alert.setTitle("Success");
                     alert.setHeaderText("Welcome");

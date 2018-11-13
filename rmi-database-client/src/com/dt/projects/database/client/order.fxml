@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1370.0" style="-fx-background-color: #dcdcdc;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane cache="true" depthTest="ENABLE" layoutY="-1.0" prefHeight="47.0" prefWidth="1370.0" style="-fx-background-color: #b0c4de;">
+         <children>
+            <Label alignment="CENTER" layoutX="-9.0" layoutY="5.0" prefHeight="45.0" prefWidth="163.0" text="NAME">
+               <font>
+                  <Font name="Cambria Math" size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="329.0" layoutY="9.0" prefHeight="34.0" prefWidth="205.0" text="PHONE NO.">
+               <font>
+                  <Font name="Cambria Math" size="25.0" />
+               </font>
+            </Label>
+            <TextField layoutX="122.0" layoutY="5.0" prefHeight="40.0" prefWidth="202.0" style="-fx-background-color: #b0c4de;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="510.0" layoutY="2.0" prefHeight="45.0" prefWidth="243.0" style="-fx-background-color: #b0c4de;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Separator layoutX="133.0" layoutY="37.0" prefHeight="2.0" prefWidth="192.0" style="-fx-background-color: #000000;" />
+            <Separator layoutX="515.0" layoutY="35.0" prefHeight="2.0" prefWidth="226.0" style="-fx-background-color: #000000;" />
+            <Label alignment="CENTER" layoutX="753.0" layoutY="8.0" prefHeight="26.0" prefWidth="154.0" text="DATE">
+               <font>
+                  <Font name="Cambria Math" size="25.0" />
+               </font>
+            </Label>
+            <DatePicker blendMode="MULTIPLY" cacheShape="false" focusTraversable="false" layoutX="901.0" layoutY="3.0" pickOnBounds="false" prefHeight="30.0" prefWidth="200.0" promptText="DD/MM/YY" style="-fx-background-color: #000000;" />
+         </children>
+      </Pane>
+      <Pane layoutY="52.0" prefHeight="697.0" prefWidth="1370.0" style="-fx-background-color: #48d1cc;">
+         <children>
+            <Pane layoutX="7.0" prefHeight="452.0" prefWidth="858.0">
+               <children>
+                  <CheckBox alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="50.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="118.0" text="Burger">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font></CheckBox>
+                  <ComboBox layoutX="210.0" layoutY="49.0" prefHeight="25.0" prefWidth="355.0" style="-fx-background-color: ;" />
+                  <ComboBox layoutX="683.0" layoutY="53.0" prefHeight="25.0" prefWidth="118.0" />
+                  <Pane layoutX="-12.0" layoutY="-6.0" prefHeight="40.0" prefWidth="1374.0" style="-fx-background-color: #808080;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="31.0" layoutY="8.0" prefHeight="26.0" prefWidth="83.0" text="Food" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="320.0" layoutY="7.0" prefHeight="26.0" prefWidth="83.0" text="Item" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="699.0" layoutY="4.0" prefHeight="26.0" prefWidth="83.0" text="Qty" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <CheckBox alignment="BOTTOM_LEFT" layoutX="15.0" layoutY="96.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="108.0" text="Pizza">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="140.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="118.0" text="Sandwich">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox alignment="BOTTOM_LEFT" layoutX="15.0" layoutY="183.0" mnemonicParsing="false" prefHeight="3.0" prefWidth="108.0" text="Noodles">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox alignment="BOTTOM_LEFT" layoutX="15.0" layoutY="223.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="89.0" text="Other">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                  </CheckBox>
+                  <ComboBox layoutX="210.0" layoutY="95.0" prefHeight="25.0" prefWidth="355.0" />
+                  <ComboBox layoutX="210.0" layoutY="139.0" prefHeight="25.0" prefWidth="355.0" />
+                  <ComboBox layoutX="210.0" layoutY="182.0" prefHeight="25.0" prefWidth="355.0" />
+                  <ComboBox layoutX="210.0" layoutY="222.0" prefHeight="25.0" prefWidth="355.0" />
+                  <ComboBox layoutX="683.0" layoutY="99.0" prefHeight="25.0" prefWidth="118.0" />
+                  <ComboBox layoutX="683.0" layoutY="143.0" prefHeight="25.0" prefWidth="118.0" />
+                  <ComboBox layoutX="683.0" layoutY="186.0" prefHeight="25.0" prefWidth="118.0" />
+                  <ComboBox layoutX="683.0" layoutY="226.0" prefHeight="25.0" prefWidth="118.0" />
+               </children>
+            </Pane>
+            <Label layoutX="387.0" layoutY="501.0" text="  kc  k kc" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

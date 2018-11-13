@@ -42,6 +42,7 @@ public class FormController implements Initializable {
     private TextField txtprice;
     @FXML
     private TextField txttype;
+    
     @FXML
     private TableView<Menu> tableView;
     @FXML
@@ -176,7 +177,7 @@ public class FormController implements Initializable {
             ex.printStackTrace();
         }
     }
-
+    
     @FXML
     private void onRefresh(ActionEvent event) {
         try{

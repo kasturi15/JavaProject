@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="564.0" prefWidth="1372.0" style="-fx-background-color: #48d1cc;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dt.projects.database.client.StaffController">
+   <children>
+      <Pane layoutX="28.0" layoutY="7.0" prefHeight="249.0" prefWidth="1326.0" style="-fx-background-color: #808080;">
+         <children>
+            <Label alignment="CENTER" layoutX="96.0" layoutY="9.0" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #ff8c00; -fx-border-color: #000000; -fx-border-width: 1;" text="NAME">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="96.0" layoutY="48.0" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #ff8c00; -fx-border-color: #000000;" text="ID">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="96.0" layoutY="87.0" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #ff8c00; -fx-border-color: #000000;" text="PASSWORD">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="96.0" layoutY="128.0" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #ff8c00; -fx-border-color: #000000;" text="E-MAIL ID">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtstaffname" layoutX="329.0" layoutY="9.0" prefHeight="9.0" prefWidth="416.0" style="-fx-background-color: #dcdcdc;" />
+            <TextField fx:id="txtstaffid" layoutX="329.0" layoutY="48.0" prefHeight="25.0" prefWidth="416.0" style="-fx-background-color: #dcdcdc;" />
+            <TextField fx:id="txtemail" layoutX="329.0" layoutY="128.0" prefHeight="25.0" prefWidth="416.0" style="-fx-background-color: #dcdcdc;" />
+            <TextField fx:id="txtstaffpass" layoutX="329.0" layoutY="87.0" prefHeight="25.0" prefWidth="416.0" style="-fx-background-color: #dcdcdc;" />
+            <Pane layoutX="792.0" layoutY="9.0" prefHeight="209.0" prefWidth="229.0">
+               <children>
+                  <Button alignment="CENTER" layoutX="34.0" layoutY="34.0" mnemonicParsing="false" onAction="#onInsertStaff" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #000000;" text="INSERT" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="36.0" layoutY="74.0" mnemonicParsing="false" onAction="#onDeleteStaff" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #000000;" text="DELETE" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="36.0" layoutY="115.0" mnemonicParsing="false" onAction="#onUpdateStaff" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #000000;" text="UPDATE" textFill="#fffdfd">
+                     <font>
+                        <Font name="Cambria Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="36.0" layoutY="157.0" mnemonicParsing="false" onAction="#onRefreshStaff" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #000000;" text="REFRESH" textFill="#fffefe">
+                     <font>
+                        <Font name="Cambria Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Label alignment="CENTER" layoutX="96.0" layoutY="169.0" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #ff8c00; -fx-border-color: #000000;" text="PHONE-NO">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="96.0" layoutY="210.0" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #ff8c00; -fx-border-color: #000000;" text="SALARY">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtno" layoutX="329.0" layoutY="169.0" prefHeight="25.0" prefWidth="416.0" style="-fx-background-color: #dcdcdc;" />
+            <TextField fx:id="txtsalary" layoutX="329.0" layoutY="210.0" prefHeight="25.0" prefWidth="416.0" style="-fx-background-color: #dcdcdc;" />
+         </children>
+      </Pane>
+      <TableView fx:id="tableView" layoutX="46.0" layoutY="263.0" prefHeight="289.0" prefWidth="1081.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="64.33332824707031" text="ID" />
+          <TableColumn fx:id="colname" prefWidth="208.0" text="NAME" />
+            <TableColumn fx:id="colpass" prefWidth="153.0" text="PASSWORD" />
+            <TableColumn fx:id="colemail" prefWidth="312.0" text="E-MAIL" />
+            <TableColumn fx:id="colphone" prefWidth="186.33331298828125" text="PHONE NO." />
+            <TableColumn fx:id="colsalary" prefWidth="155.0" text="SALARY" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
