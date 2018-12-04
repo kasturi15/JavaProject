@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dt.projects.database.client.Order1Controller">
+    <children>
+      <Pane cache="true" depthTest="ENABLE" layoutY="-1.0" prefHeight="47.0" prefWidth="1370.0" style="-fx-background-color: #c0c0c0;">
+         <children>
+            <Label alignment="CENTER" layoutX="-9.0" layoutY="5.0" prefHeight="45.0" prefWidth="163.0" text="NAME">
+               <font>
+                  <Font name="Cambria Math" size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="329.0" layoutY="9.0" prefHeight="34.0" prefWidth="205.0" text="PHONE NO.">
+               <font>
+                  <Font name="Cambria Math" size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtcustname" layoutX="122.0" layoutY="5.0" prefHeight="40.0" prefWidth="202.0" style="-fx-background-color: #c0c0c0;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtcustphone" layoutX="510.0" layoutY="2.0" prefHeight="45.0" prefWidth="243.0" style="-fx-background-color: #c0c0c0;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Separator layoutX="133.0" layoutY="37.0" prefHeight="2.0" prefWidth="192.0" style="-fx-background-color: #000000;" />
+            <Separator layoutX="515.0" layoutY="35.0" prefHeight="2.0" prefWidth="226.0" style="-fx-background-color: #000000;" />
+            <Label alignment="CENTER" layoutX="753.0" layoutY="8.0" prefHeight="26.0" prefWidth="154.0" text="DATE">
+               <font>
+                  <Font name="Cambria Math" size="25.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="orderDate" blendMode="MULTIPLY" cacheShape="false" focusTraversable="false" layoutX="901.0" layoutY="9.0" pickOnBounds="false" prefHeight="30.0" prefWidth="200.0" promptText="DD/MM/YY" style="-fx-background-color: #000000;" />
+         </children>
+      </Pane>
+      <Pane layoutY="52.0" prefHeight="564.0" prefWidth="1370.0" style="-fx-background-color: #c0c0c0;">
+         <children>
+            <Pane prefHeight="392.0" prefWidth="848.0">
+               <children>
+                  <CheckBox fx:id="checkburger" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="55.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="118.0" text="Burger">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font></CheckBox>
+                  <ComboBox fx:id="comboburger" layoutX="166.0" layoutY="43.0" prefHeight="34.0" prefWidth="364.0" promptText="                                     Choose   Your   Burger   " style="-fx-background-color: #c0c0c0;" />
+                  <ComboBox fx:id="burgerqty" layoutX="586.0" layoutY="53.0" prefHeight="25.0" prefWidth="69.0" promptText="1" />
+                  <Pane layoutX="-12.0" layoutY="-6.0" prefHeight="40.0" prefWidth="1383.0" style="-fx-background-color: #808080;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="24.0" layoutY="7.0" prefHeight="30.0" prefWidth="143.0" text="Foods/Drinks" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="326.0" layoutY="3.0" prefHeight="34.0" prefWidth="118.0" text="Item" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="595.0" layoutY="7.0" prefHeight="26.0" prefWidth="83.0" text="Qty" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="1024.0" layoutY="1.0" prefHeight="40.0" prefWidth="170.0" text="Bill Reciept" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="32.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <CheckBox fx:id="checkpizza" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="101.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="108.0" text="Pizza">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="checksandwich" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="150.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="118.0" text="Sandwich">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="checknoodles" alignment="BOTTOM_LEFT" layoutX="16.0" layoutY="199.0" mnemonicParsing="false" prefHeight="3.0" prefWidth="108.0" text="Noodles">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="checkother" alignment="BOTTOM_LEFT" layoutX="15.0" layoutY="248.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="89.0" text="Other">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                  </CheckBox>
+                  <ComboBox fx:id="combopizza" layoutX="166.0" layoutY="85.0" prefHeight="40.0" prefWidth="364.0" promptText="                                    Choose   Your   Pizza" style="-fx-background-color: #c0c0c0;" />
+                  <ComboBox fx:id="combosandwich" layoutX="167.0" layoutY="139.0" prefHeight="34.0" prefWidth="364.0" promptText="                                   Choose   Your   Sandwich" style="-fx-background-color: #c0c0c0;" />
+                  <ComboBox fx:id="combonoodles" layoutX="167.0" layoutY="184.0" prefHeight="40.0" prefWidth="364.0" promptText="                                    Choose   Your   Noodles" style="-fx-background-color: #c0c0c0;" />
+                  <ComboBox fx:id="combodrinks" layoutX="167.0" layoutY="285.0" prefHeight="40.0" prefWidth="364.0" promptText="                                 Choose   Your   Drinks" style="-fx-background-color: #c0c0c0;" />
+                  <ComboBox fx:id="pizzaqty" layoutX="586.0" layoutY="99.0" prefHeight="25.0" prefWidth="69.0" promptText="1" />
+                  <ComboBox fx:id="sandwichqty" layoutX="586.0" layoutY="148.0" prefHeight="25.0" prefWidth="69.0" promptText="1" />
+                  <ComboBox fx:id="noodlesqty" layoutX="586.0" layoutY="196.0" prefHeight="25.0" prefWidth="69.0" promptText="1" />
+                  <ComboBox fx:id="otherqty" layoutX="586.0" layoutY="243.0" prefHeight="25.0" prefWidth="69.0" promptText="1" />
+                  <Button layoutX="715.0" layoutY="54.0" mnemonicParsing="false" onAction="#addburger" prefHeight="23.0" prefWidth="83.0" style="-fx-background-color: #808080;" text="ADD MEAL" textFill="WHITE" />
+                  <Button layoutX="715.0" layoutY="98.0" mnemonicParsing="false" onAction="#addpizza" prefHeight="23.0" prefWidth="83.0" style="-fx-background-color: #808080;" text="ADD MEAL" textFill="WHITE" />
+                  <Button layoutX="715.0" layoutY="148.0" mnemonicParsing="false" onAction="#addsandwich" prefHeight="23.0" prefWidth="83.0" style="-fx-background-color: #808080;" text="ADD MEAL" textFill="WHITE" />
+                  <Button layoutX="715.0" layoutY="196.0" mnemonicParsing="false" onAction="#addnoodles" prefHeight="23.0" prefWidth="83.0" style="-fx-background-color: #808080;" text="ADD MEAL" textFill="WHITE" />
+                  <Button layoutX="715.0" layoutY="242.0" mnemonicParsing="false" onAction="#addother" prefHeight="23.0" prefWidth="83.0" style="-fx-background-color: #808080;" text="ADD MEAL" textFill="WHITE" />
+                  <Separator layoutX="167.0" layoutY="77.0" prefHeight="3.0" prefWidth="364.0" style="-fx-background-color: #000000;" />
+                  <Separator layoutX="166.0" layoutY="123.0" prefHeight="3.0" prefWidth="364.0" style="-fx-background-color: #000000;" />
+                  <Separator layoutX="167.0" layoutY="172.0" prefHeight="3.0" prefWidth="364.0" style="-fx-background-color: #000000;" />
+                  <Separator layoutX="167.0" layoutY="221.0" prefHeight="3.0" prefWidth="364.0" style="-fx-background-color: #000000;" />
+                  <Separator layoutX="167.0" layoutY="270.0" prefHeight="3.0" prefWidth="364.0" style="-fx-background-color: #000000;" />
+                  <CheckBox fx:id="checkdrinks" alignment="BOTTOM_LEFT" layoutX="15.0" layoutY="299.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="89.0" text="Drinks">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="checkshakes" alignment="BOTTOM_LEFT" layoutX="15.0" layoutY="344.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="101.0" text="Shakes">
+                     <font>
+                        <Font name="Cambria Bold" size="17.0" />
+                     </font>
+                  </CheckBox>
+                  <Separator layoutX="167.0" layoutY="321.0" prefHeight="3.0" prefWidth="364.0" style="-fx-background-color: #000000;" />
+                  <ComboBox fx:id="comboshakes" layoutX="166.0" layoutY="336.0" prefHeight="40.0" prefWidth="364.0" promptText="                                  Choose   Your   Shakes" style="-fx-background-color: #c0c0c0;" />
+                  <Separator layoutX="166.0" layoutY="372.0" prefHeight="3.0" prefWidth="364.0" style="-fx-background-color: #000000;" />
+                  <ComboBox fx:id="comboother" layoutX="167.0" layoutY="235.0" prefHeight="34.0" prefWidth="364.0" promptText="                                 Choose   Your   Other   Items" style="-fx-background-color: #c0c0c0;" />
+                  <ComboBox fx:id="drinksqty" layoutX="586.0" layoutY="295.0" prefHeight="25.0" prefWidth="69.0" promptText="1" />
+                  <ComboBox fx:id="shakesqty" layoutX="586.0" layoutY="349.0" prefHeight="25.0" prefWidth="69.0" promptText="1" />
+                  <Button layoutX="715.0" layoutY="296.0" mnemonicParsing="false" onAction="#adddrinks" prefHeight="23.0" prefWidth="83.0" style="-fx-background-color: #808080;" text="ADD MEAL" textFill="WHITE" />
+                  <Button layoutX="715.0" layoutY="349.0" mnemonicParsing="false" onAction="#addshakes" prefHeight="23.0" prefWidth="83.0" style="-fx-background-color: #808080;" text="ADD MEAL" textFill="WHITE" />
+               </children>
+            </Pane>
+            <Pane layoutX="14.0" layoutY="393.0" prefHeight="161.0" prefWidth="1334.0" style="-fx-background-color: #808080;">
+               <children>
+                  <Label layoutX="58.0" layoutY="10.0" prefHeight="35.0" prefWidth="144.0" text="Sub Total" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="57.0" layoutY="53.0" prefHeight="35.0" prefWidth="144.0" text="Taxs" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="59.0" layoutY="99.0" prefHeight="35.0" prefWidth="144.0" text="Total Amount" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria" size="24.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="259.0" layoutY="41.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                  <Separator layoutX="260.0" layoutY="82.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                  <Separator layoutX="260.0" layoutY="122.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+                  <TextField fx:id="txtsubtotal" layoutX="259.0" layoutY="13.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #808080;" />
+                  <TextField fx:id="txttax" layoutX="259.0" layoutY="54.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #808080;" />
+                  <TextField fx:id="txtamt" layoutX="259.0" layoutY="94.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #808080;" />
+                  <Button layoutX="870.0" layoutY="102.0" mnemonicParsing="false" onAction="#onSend" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: #c0c0c0;" text="SEND">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <Button layoutX="992.0" layoutY="103.0" mnemonicParsing="false" onAction="#onPrint" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: #c0c0c0;" text="PRINT">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <Button layoutX="1108.0" layoutY="103.0" mnemonicParsing="false" onAction="#onRemove" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: #c0c0c0;" text="REMOVE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <Button layoutX="1220.0" layoutY="103.0" mnemonicParsing="false" onAction="#onClear" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: #c0c0c0;" text="CLEAR">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <Pane layoutX="522.0" layoutY="-16.0" prefHeight="110.0" prefWidth="279.0" style="-fx-background-color: c0c0c0;" />
+               </children>
+            </Pane>
+            <Pane layoutX="864.0" layoutY="45.0" prefHeight="333.0" prefWidth="474.0">
+               <children>
+                  <TableView fx:id="tableView" prefHeight="333.0" prefWidth="455.0">
+                     <columns>
+                        <TableColumn fx:id="colid" prefWidth="50.0" text="S.NO" />
+                        <TableColumn fx:id="colitem" prefWidth="182.0" text="ITEM" />
+                        <TableColumn fx:id="colprice" prefWidth="71.0" text="RATE" />
+                        <TableColumn fx:id="colqty" prefWidth="57.0" text="QTY" />
+                        <TableColumn fx:id="colItemcost" prefWidth="94.0" text="ITEM COST" />
+                     </columns>
+                  </TableView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+    
+</AnchorPane>

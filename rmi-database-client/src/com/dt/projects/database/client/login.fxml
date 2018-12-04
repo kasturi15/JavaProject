@@ -25,8 +25,10 @@
                   <Font name="Cambria Bold Italic" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="txtlogid" layoutX="858.0" layoutY="306.0" prefHeight="41.0" prefWidth="218.0" style="-fx-background-color: #48d1cc;" />
-            <TextField fx:id="txtpass" layoutX="858.0" layoutY="373.0" prefHeight="41.0" prefWidth="218.0" style="-fx-background-color: #48d1cc;" />
+            <TextField fx:id="txtlogid" alignment="CENTER" layoutX="850.0" layoutY="305.0" prefHeight="41.0" prefWidth="218.0" style="-fx-background-color: #48d1cc;">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font></TextField>
             <Button layoutX="771.0" layoutY="467.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="32.0" prefWidth="98.0" style="-fx-background-color: #585858;" text="LOGIN" textFill="WHITE">
                <font>
                   <Font name="Cambria Bold" size="14.0" />
@@ -37,8 +39,9 @@
                   <Font name="Cambria Bold" size="14.0" />
                </font>
             </Button>
-            <Separator layoutX="858.0" layoutY="346.0" prefHeight="3.0" prefWidth="218.0" style="-fx-background-color: #383838;" />
-            <Separator layoutX="856.0" layoutY="413.0" prefHeight="3.0" prefWidth="218.0" style="-fx-background-color: #383838;" />
+            <Separator layoutX="856.0" layoutY="413.0" prefHeight="3.0" prefWidth="218.0" style="-fx-background-color: #000000;" />
+            <Separator layoutX="850.0" layoutY="344.0" prefHeight="3.0" prefWidth="218.0" style="-fx-background-color: #000000;" />
+            <PasswordField fx:id="txtpass" alignment="CENTER" layoutX="856.0" layoutY="372.0" prefHeight="41.0" prefWidth="218.0" style="-fx-background-color: #48d1cc;" />
          </children>
       </Pane>
    </children>

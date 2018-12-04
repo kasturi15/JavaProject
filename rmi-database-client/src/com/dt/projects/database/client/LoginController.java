@@ -44,6 +44,8 @@ public class LoginController implements Initializable {
     private Main main;
     private LoginService loginService;
     private MenuService menuService;
+    
+    public String Staff_Id;
 
     /**
      * Initializes the controller class.
@@ -69,6 +71,8 @@ public class LoginController implements Initializable {
                 Login login = new Login();
                 login.setStaff_id(txtlogid.getText());
                 login.setStaff_pass(txtpass.getText());
+                
+                Staff_Id = txtlogid.getText();
 
                 boolean result = loginService.getLoginById(login);
 
@@ -76,7 +80,7 @@ public class LoginController implements Initializable {
                 {
                     if("admin".equals(txtlogid.getText()) && "admin".equals(txtpass.getText()))
                     {
-                        AnchorPane pane = FXMLLoader.load(getClass().getResource("adminpage.fxml"));
+                        AnchorPane pane = FXMLLoader.load(getClass().getResource("adminPage.fxml"));
                         loginPage.getChildren().setAll(pane);
                     }
                     else

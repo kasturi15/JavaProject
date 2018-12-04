@@ -37,7 +37,7 @@ public class StaffpageController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         AnchorPane pane;
         try {
-            pane = FXMLLoader.load(getClass().getResource("order.fxml"));
+            pane = FXMLLoader.load(getClass().getResource("takeorder.fxml"));
             adminStage.getChildren().setAll(pane);
         } catch (IOException ex) {
             Logger.getLogger(AdminpageController.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,12 +47,15 @@ public class StaffpageController implements Initializable {
     @FXML
     private void onTakeOrder(Event event) throws IOException {
         
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("order.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("takeorder.fxml"));
         adminStage.getChildren().setAll(pane);
     }
 
     @FXML
-    private void onPendingOrder(Event event) {
+    private void onPendingOrder(Event event) throws IOException {
+        
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("pendingorder.fxml"));
+        adminStage.getChildren().setAll(pane);
     }
 
     @FXML

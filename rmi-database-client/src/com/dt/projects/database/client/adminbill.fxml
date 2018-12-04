@@ -7,38 +7,34 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="1372.0" style="-fx-background-color: #7cafc2;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dt.projects.database.client.AdminbillController">
+<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="1372.0" style="-fx-background-color: #c0c0c0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dt.projects.database.client.AdminbillController">
    <children>
-      <Pane layoutX="-2.0" prefHeight="100.0" prefWidth="1374.0" style="-fx-background-color: #7cafc2;">
-         <children>
-            <Label alignment="CENTER" layoutX="31.0" layoutY="32.0" prefHeight="46.0" prefWidth="149.0" style="-fx-background-color: #dcdcdc; -fx-border-color: #000000;" text="MONTH">
-               <font>
-                  <Font name="Cambria Bold" size="24.0" />
-               </font>
-            </Label>
-            <ComboBox layoutX="228.0" layoutY="39.0" prefHeight="33.0" prefWidth="131.0" promptText="SELECT MONTH" style="-fx-background-color: #dcdcdc; -fx-border-color: #000000;" />
-         </children>
-      </Pane>
-      <TableView layoutX="24.0" layoutY="110.0" prefHeight="388.0" prefWidth="802.0">
+      <TableView layoutX="29.0" layoutY="83.0" prefHeight="433.0" prefWidth="802.0">
         <columns>
           <TableColumn prefWidth="193.0" text="DATE" />
           <TableColumn prefWidth="431.0" text="N0. OF ORDER TAKEN" />
             <TableColumn prefWidth="179.0" text="AMOUNT" />
         </columns>
       </TableView>
-      <Label layoutX="833.0" layoutY="371.0" prefHeight="40.0" prefWidth="149.0" text="TOTAL AMOUNT">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="877.0" layoutY="338.0" prefHeight="49.0" prefWidth="173.0" text="TOTAL AMOUNT">
          <font>
-            <Font name="Cambria Bold" size="15.0" />
+            <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="967.0" layoutY="364.0" prefHeight="33.0" prefWidth="131.0" style="-fx-background-color: #7cafc2;" />
-      <Separator layoutX="967.0" layoutY="398.0" prefHeight="3.0" prefWidth="131.0" style="-fx-background-color: #000000;" />
-      <Label layoutX="833.0" layoutY="434.0" prefHeight="33.0" prefWidth="208.0" text="TOTAL NO OF ORDER TAKEN">
+      <TextField layoutX="1138.0" layoutY="332.0" prefHeight="47.0" prefWidth="198.0" style="-fx-background-color: #c0c0c0;" />
+      <Separator layoutX="1139.0" layoutY="378.0" prefHeight="2.0" prefWidth="196.0" style="-fx-background-color: #000000;" />
+      <Label layoutX="852.0" layoutY="430.0" prefHeight="33.0" prefWidth="240.0" text="TOTAL NO OF ORDER TAKEN">
          <font>
-            <Font name="Cambria Bold" size="15.0" />
+            <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="1062.0" layoutY="426.0" prefHeight="33.0" prefWidth="131.0" style="-fx-background-color: #7cafc2;" />
-      <Separator layoutX="1062.0" layoutY="458.0" prefHeight="3.0" prefWidth="131.0" style="-fx-background-color: #000000;" />
+      <TextField layoutX="1141.0" layoutY="412.0" prefHeight="41.0" prefWidth="196.0" style="-fx-background-color: #c0c0c0;" />
+      <Separator layoutX="1141.0" layoutY="453.0" prefHeight="2.0" prefWidth="195.0" style="-fx-background-color: #000000;" />
+      <ComboBox layoutX="249.0" layoutY="19.0" prefHeight="33.0" prefWidth="131.0" promptText="SELECT MONTH" style="-fx-background-color: #c0c0c0; -fx-border-color: #000000;" />
+      <Label alignment="CENTER" layoutX="54.0" layoutY="13.0" prefHeight="46.0" prefWidth="190.0" style="-fx-background-color: #c0c0c0; -fx-border-color: #c0c0c0;" text="MONTH">
+         <font>
+            <Font name="Cambria Bold" size="36.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
