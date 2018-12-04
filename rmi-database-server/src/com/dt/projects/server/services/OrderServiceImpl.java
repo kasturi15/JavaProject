@@ -5,41 +5,47 @@
  */
 package com.dt.projects.server.services;
 
-import com.dt.projects.database.api.entity.Menu;
+import com.dt.projects.database.api.entity.Order;
 import com.dt.projects.database.api.services.MenuService;
+import com.dt.projects.database.api.services.OrderService;
 import com.dt.projects.server.utilities.DatabaseConnection;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
+
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author kastu
  */
-public class MenuServiceImpl extends UnicastRemoteObject implements MenuService {
+public class OrderServiceImpl extends UnicastRemoteObject implements OrderService {
 
-    public MenuServiceImpl() throws RemoteException {
+    public OrderServiceImpl() throws RemoteException {
     }
     
     @Override
-    public Menu insertMenu(Menu menu) throws RemoteException {
+    public Order insertOrder(Order order) throws RemoteException {
         PreparedStatement statement = null;
-        //INSERT INTO `menu`(`item_id`, `item_name`, `item_type`, `item_price`) VALUES ()
-        String sql = "insert into menu(item_id, item_name, item_type, item_price) values (null,?, ?, ?)";
+        //INSERT INTO `order_detail`(`order_id`, `customer_name`, `customer_no`, `orders`, `bill`, `order_date`, `staff_id`, `order_status`) VALUES ()
+        String sql = "insert into order_detail(order_id, customer_name, customer_no, orders, bill, order_date, staff_id, order_status) values (null,?, ?, ?, ?, ?, ?, ?)";
    
         try {
             statement = DatabaseConnection.getConnection().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
         
-            statement.setString(1, menu.getItem_name());
-            statement.setString(2, menu.getItem_type());
-            statement.setInt(3,menu.getItem_price());
+            statement.setString(1, order.getCustomer_name());
+            statement.setLong(2, order.getCustomer_no());
+            statement.setString(3, order.getOrders());
+            statement.setInt(4, order.getBill());
+            statement.setDate(5, Date.valueOf(order.getOrder_date().toString()));
+            statement.setString(6, order.getStaff_id());
+            statement.setString(7, order.getOrder_status());
             
             statement.executeUpdate();
             
@@ -47,12 +53,12 @@ public class MenuServiceImpl extends UnicastRemoteObject implements MenuService 
             
             if(result.next())
             {
-                menu.setItem_id(result.getLong(1));
+                order.setOrder_id(result.getInt(1));
             }
             
             result.close();
             
-            return menu;
+            return order;
             
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -69,20 +75,22 @@ public class MenuServiceImpl extends UnicastRemoteObject implements MenuService 
     }
 
     @Override
-    public void updateMenu(Menu menu) throws RemoteException {
-        
+    public void updateOrder(Order order) throws RemoteException {
         PreparedStatement statement = null;
-        //UPDATE `menu` SET `item_id`=[value-1],`item_name`=[value-2],`item_type`=[value-3],`item_price`=[value-4] WHERE 1
-        //String sql;
-        String sql = "update menu set item_name = ?, item_type = ?, item_price = ? where item_id = ?";
+        //UPDATE `order_detail` SET `order_id`=,`customer_name`=,`customer_no`=,`orders`=,`bill`=,`order_date`=,`staff_id`=,`order_status`=
+        String sql = "update order_detail set customer_name = ?, customer_no = ?, orders = ?, bill = ?, order_date = ?, staff_id = ?, order_status = ? where order_id = ?";
    
         try {
             statement = DatabaseConnection.getConnection().prepareStatement(sql);
         
-            statement.setString(1, menu.getItem_name());
-            statement.setString(2, menu.getItem_type());
-            statement.setInt(3, menu.getItem_price());
-            statement.setLong(4, menu.getItem_id());
+            statement.setString(1, order.getCustomer_name());
+            statement.setLong(2, order.getCustomer_no());
+            statement.setString(3, order.getOrders());
+            statement.setInt(4, order.getBill());
+            statement.setDate(5, Date.valueOf(order.getOrder_date().toString()));
+            statement.setString(6, order.getStaff_id());
+            statement.setString(7, order.getOrder_status());
+            statement.setInt(8, order.getOrder_id());
             
             statement.executeUpdate();
             
@@ -96,21 +104,19 @@ public class MenuServiceImpl extends UnicastRemoteObject implements MenuService 
                 ex.printStackTrace();
             }
         }
-        
     }
 
     @Override
-    public void deleteMenu(Long item_id) throws RemoteException {
-        
+    public void deleteOrder(int order_id) throws RemoteException {
         PreparedStatement statement = null;
-        //DELETE FROM `menu` WHERE 0
-        String sql = "delete from menu where item_id = ?";
+        //DELETE FROM `order_detail` WHERE 0
+        String sql = "delete from order_detail where order_id = ?";
         
         try
         {
             statement = DatabaseConnection.getConnection().prepareStatement(sql);
             
-            statement.setLong(1, item_id);
+            statement.setInt(1, order_id);
             statement.executeUpdate();
             
         }catch(SQLException ex)
@@ -132,31 +138,35 @@ public class MenuServiceImpl extends UnicastRemoteObject implements MenuService 
     }
 
     @Override
-    public Menu getMenuById(Long item_id) throws RemoteException {
+    public Order getOrderById(int order_id) throws RemoteException {
         PreparedStatement statement = null;
         
-        String sql = "select * from menu where item_id = ?";
+        String sql = "select * from order_detail where order_id = ?";
         
         try
         {
             statement = DatabaseConnection.getConnection().prepareStatement(sql);
-            statement.setLong(1, item_id);
+            statement.setLong(1, order_id);
             
             ResultSet result = statement.executeQuery();
             
-            Menu menu = null;
+            Order order = null;
             
             if(result.next())
             {
-                menu.setItem_id(result.getLong("item_id"));
-                menu.setItem_name(result.getString("item_name"));
-                menu.setItem_type(result.getString("item_type"));
-                menu.setItem_price(result.getInt("item_price"));
+                order.setOrder_id(result.getInt("order_id"));
+                order.setCustomer_name(result.getString("customer_name"));
+                order.setCustomer_no(result.getLong("customer_no"));
+                order.setOrders(result.getString("orders"));
+                order.setBill(result.getInt("bill"));
+                order.setOrder_date((LocalDate)result.getObject("order_date"));
+                order.setStaff_id(result.getString("staff_id"));
+                order.setOrder_status(result.getString("order_status"));
             }
             
             result.close();
             
-            return menu;
+            return order;
         }catch(SQLException e)
         {
             e.printStackTrace();
@@ -177,8 +187,8 @@ public class MenuServiceImpl extends UnicastRemoteObject implements MenuService 
     }
 
     @Override
-    public List<Menu> getAllMenu() throws RemoteException {
-       Statement statement = null;
+    public List<Order> getAllOrder() throws RemoteException {
+        Statement statement = null;
        
        String sql = "select * from menu";
        
@@ -188,16 +198,20 @@ public class MenuServiceImpl extends UnicastRemoteObject implements MenuService 
            
            ResultSet result = statement.executeQuery(sql);
            
-           List<Menu> list = new ArrayList<Menu>();
-           Menu menu = null;
+           List<Order> list = new ArrayList<Order>();
+           Order order = null;
            while(result.next())
            {
-               menu = new Menu();
-               menu.setItem_id(result.getLong("item_id"));
-               menu.setItem_name(result.getString("item_name"));
-               menu.setItem_type(result.getString("item_type"));
-               menu.setItem_price(result.getInt("item_price"));
-               list.add(menu);
+               order = new Order();
+               order.setOrder_id(result.getInt("order_id"));
+                order.setCustomer_name(result.getString("customer_name"));
+                order.setCustomer_no(result.getLong("customer_no"));
+                order.setOrders(result.getString("orders"));
+                order.setBill(result.getInt("bill"));
+                order.setOrder_date((LocalDate)result.getObject("order_date"));
+                order.setStaff_id(result.getString("staff_id"));
+                order.setOrder_status(result.getString("order_status"));
+               list.add(order);
            }
            
            result.close();
@@ -219,51 +233,5 @@ public class MenuServiceImpl extends UnicastRemoteObject implements MenuService 
            }
        }
     }
-
-    @Override
-    public int ItemPrice(String item_name) throws RemoteException {
-        
-        PreparedStatement statement = null;
-        
-        String sql = "select * from menu where item_name = ?";
-        
-        try
-        {
-            statement = DatabaseConnection.getConnection().prepareStatement(sql);
-            statement.setString(1, item_name);
-            
-            ResultSet result = statement.executeQuery();
-            
-            Menu menu = null;
-            int price = 0;
-            
-            if(result.next())
-            { 
-                price = result.getInt("item_price");
-            }
-            
-            result.close();
-            
-            return price;
-        }catch(SQLException e)
-        {
-            e.printStackTrace();
-            return 0;
-        }finally
-        {
-            if(statement != null)
-            {
-                try 
-                {
-                    statement.close();
-                }catch(SQLException ex)
-                {
-                    ex.printStackTrace();
-                }
-            }
-        }
-       
-    }
-    
     
 }
