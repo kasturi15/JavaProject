@@ -25,4 +25,6 @@ public interface MenuService extends Remote{
     Menu getMenuById(Long item_id) throws RemoteException;
     
     List<Menu> getAllMenu()throws RemoteException;
+    
+    int ItemPrice(String item_name)throws RemoteException;
 }
