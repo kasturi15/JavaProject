@@ -10,6 +10,7 @@ import com.dt.projects.server.services.LoginServiceImpl;
 import com.dt.projects.server.services.MenuServiceImpl;
 import com.dt.projects.server.services.OrderServiceImpl;
 import com.dt.projects.server.services.StaffServiceImpl;
+import com.dt.projects.server.services.TaxServiceImpl;
 import com.dt.projects.server.utilities.DatabaseConnection;
 import java.rmi.Remote;
 import java.rmi.registry.LocateRegistry;
@@ -37,6 +38,7 @@ public class Main extends Application {
         LoginServiceImpl loginServiceImpl = new LoginServiceImpl();
         StaffServiceImpl staffServiceImpl = new StaffServiceImpl();
         OrderServiceImpl orderServiceImpl = new OrderServiceImpl();
+        TaxServiceImpl taxServiceImpl = new TaxServiceImpl();
         
         //MenuService menuService = (MenuService) UnicastRemoteObject.exportObject(menuServiceImpl,0);
         
@@ -44,6 +46,8 @@ public class Main extends Application {
         registry.rebind("service", loginServiceImpl);
         registry.rebind("staffservice", staffServiceImpl);
         registry.rebind("orderservice", orderServiceImpl);
+        registry.rebind("taxservice", taxServiceImpl);
+        
         System.out.println("Server is running");
     }
     

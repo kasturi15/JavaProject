@@ -74,5 +74,48 @@ public class LoginServiceImpl extends UnicastRemoteObject implements LoginServic
             }
         }
     }
+
+    @Override
+    public String getLoginId(Login login) throws RemoteException {
+        
+        PreparedStatement statement = null;
+        String staff_id = "";
+        
+        String sql ="select * from staff_login where staff_id = ? and staff_pass = ?";
+        
+        try
+        {
+            statement= DatabaseConnection.getConnection().prepareStatement(sql);
+            
+            statement.setString(1, login.getStaff_id());
+            statement.setString(2, login.getStaff_pass());
+            
+            ResultSet result = statement.executeQuery();
+            
+            if(result.next())
+                staff_id=result.getString("staff_id");
+            
+            result.close();
+            return staff_id;
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            return null;
+        }finally
+        {
+            if(statement != null)
+            {
+                try 
+                {
+                    statement.close();
+                }catch(SQLException ex)
+                {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        
+    }
     
 }

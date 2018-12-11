@@ -6,6 +6,7 @@
 package com.dt.projects.server.services;
 
 import com.dt.projects.database.api.entity.Order;
+import com.dt.projects.database.api.entity.Tax;
 import com.dt.projects.database.api.services.MenuService;
 import com.dt.projects.database.api.services.OrderService;
 import com.dt.projects.server.utilities.DatabaseConnection;
@@ -20,6 +21,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -190,7 +193,7 @@ public class OrderServiceImpl extends UnicastRemoteObject implements OrderServic
     public List<Order> getAllOrder() throws RemoteException {
         Statement statement = null;
        
-       String sql = "select * from menu";
+       String sql = "select * from order_detail";
        
        try
        {
@@ -208,7 +211,7 @@ public class OrderServiceImpl extends UnicastRemoteObject implements OrderServic
                 order.setCustomer_no(result.getLong("customer_no"));
                 order.setOrders(result.getString("orders"));
                 order.setBill(result.getInt("bill"));
-                order.setOrder_date((LocalDate)result.getObject("order_date"));
+                order.setOrder_date(LocalDate.parse(result.getDate("order_date").toString()) );
                 order.setStaff_id(result.getString("staff_id"));
                 order.setOrder_status(result.getString("order_status"));
                list.add(order);
@@ -233,5 +236,41 @@ public class OrderServiceImpl extends UnicastRemoteObject implements OrderServic
            }
        }
     }
+
+    @Override
+    public int getCurrentGst() throws RemoteException {
+        
+        try {
+            Statement statement = null;
+            
+            String sql = "select gst from tax where tax_id = 1 ";
+            
+            statement = DatabaseConnection.getConnection().createStatement();
+            
+            ResultSet result = statement.executeQuery(sql);
+            
+            Tax tax = null;
+            
+            if(result.first())
+            {
+                tax.setGst(result.getInt("gst"));
+            }
+            
+            int t = tax.getGst();
+           
+          result.close();
+          return t;  
+            
+        } catch (SQLException ex) {
+            
+            
+            ex.printStackTrace();
+            return 0;
+            
+        }
+        
+        
+    }
+
     
 }
