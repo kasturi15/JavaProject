@@ -5,17 +5,22 @@
  */
 package com.dt.projects.database.api.services;
 
-import com.dt.projects.database.api.entity.Login;
+import com.dt.projects.database.api.entity.Menu;
+import com.dt.projects.database.api.entity.Tax;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.List;
 
 /**
  *
  * @author kastu
  */
-public interface LoginService extends Remote {
+public interface TaxService extends Remote{
     
-    boolean getLoginById(Login login) throws RemoteException;  
+    //Tax getTaxById(int tax_id) throws RemoteException;
     
-    String getLoginId(Login login)throws RemoteException;
+    List<Tax> getAllTax()throws RemoteException;
+    
+    void updateTax(Tax tax) throws RemoteException;
+    
 }

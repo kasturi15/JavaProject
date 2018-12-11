@@ -24,7 +24,10 @@ public interface OrderService extends Remote{
     
     Order getOrderById(int order_id) throws RemoteException;
     
+    int getCurrentGst()throws RemoteException;
+    
     List<Order> getAllOrder() throws RemoteException;
     
+    //List<BillSummary> getBillDetail()throws RemoteException;
     
 }
