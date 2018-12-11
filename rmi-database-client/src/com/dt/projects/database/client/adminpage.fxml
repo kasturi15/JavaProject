@@ -14,7 +14,7 @@
          <children>
             <Pane prefHeight="146.0" prefWidth="1372.0" style="-fx-background-color: #808080;">
                <children>
-                  <Label alignment="CENTER" layoutX="341.0" layoutY="15.0" prefHeight="94.0" prefWidth="568.0" text="ADMIN CONTROLER" textFill="#ddf0f8">
+                  <Label alignment="CENTER" layoutX="341.0" layoutY="15.0" prefHeight="94.0" prefWidth="568.0" text="ADMIN CONTROLLER" textFill="#ddf0f8">
                      <font>
                         <Font name="Cambria Bold Italic" size="56.0" />
                      </font>

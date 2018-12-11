@@ -7,8 +7,11 @@ package com.dt.projects.database.client;
 
 import com.dt.projects.database.api.entity.Menu;
 import com.dt.projects.database.api.entity.Order;
+import com.dt.projects.database.api.entity.Tax;
+import com.dt.projects.database.api.services.LoginService;
 import com.dt.projects.database.api.services.MenuService;
 import com.dt.projects.database.api.services.OrderService;
+import com.dt.projects.database.api.services.TaxService;
 import com.dt.projects.database.client.api.OrderDetail;
 import java.net.URL;
 import java.rmi.RemoteException;
@@ -117,9 +120,25 @@ public class Order1Controller implements Initializable {
     
     private MenuService menuService;
     
+    private LoginService loginService;
+    
     private OrderService orderService;
     
+    private TaxService taxService;
+    
     private OrderDetail orderDetail;
+    
+    private int tax;
+    
+    private int taxamt;            
+    
+    private String Staff_id;
+    
+    //private LoginController loginController;
+    
+    String custOrder= "";
+    
+    int totalamt;
     
     int itemtotal;
     int subtotal=0;
@@ -150,7 +169,7 @@ public class Order1Controller implements Initializable {
                 }
                 else
                 {
-                    clearFields();
+                    //clearFields();
                 }
             }
             
@@ -168,6 +187,8 @@ public class Order1Controller implements Initializable {
                 int qty = burgerqty.getValue();
                 int price = menuService.ItemPrice(burgerItem);
                 
+                custOrder += burgerItem +", ";
+                
                 itemtotal = qty*price;
                 subtotal = subtotal+ itemtotal;
                 
@@ -179,7 +200,8 @@ public class Order1Controller implements Initializable {
             
                 tableView.getItems().add(orderDetail);
                 
-                txtsubtotal.setText(Integer.toString(subtotal)); 
+                calculateTax();
+                
             
         } catch (RemoteException ex) {
                 ex.printStackTrace();
@@ -199,6 +221,8 @@ public class Order1Controller implements Initializable {
                 itemtotal = qty*price;
                 subtotal = subtotal+ itemtotal;
                 
+                custOrder += pizzaItem +", ";
+                
                 orderDetail.setColid(++id);
                 orderDetail.setColname(pizzaItem);
                 orderDetail.setColqty(qty);
@@ -206,9 +230,8 @@ public class Order1Controller implements Initializable {
                 orderDetail.setColItemcost(itemtotal);
             
                 tableView.getItems().add(orderDetail);
-                
-                txtsubtotal.setText(Integer.toString(subtotal)); 
-            
+                 
+                calculateTax();
         } catch (RemoteException ex) {
                 ex.printStackTrace();
         }
@@ -227,6 +250,8 @@ public class Order1Controller implements Initializable {
                 itemtotal = qty*price;
                 subtotal = subtotal+ itemtotal;
                 
+                custOrder += Item +", ";
+                
                 orderDetail.setColid(++id);
                 orderDetail.setColname(Item);
                 orderDetail.setColqty(qty);
@@ -235,8 +260,7 @@ public class Order1Controller implements Initializable {
             
                 tableView.getItems().add(orderDetail);
                 
-                txtsubtotal.setText(Integer.toString(subtotal)); 
-            
+                calculateTax();
         } catch (RemoteException ex) {
                 ex.printStackTrace();
         }
@@ -255,6 +279,8 @@ public class Order1Controller implements Initializable {
                 itemtotal = qty*price;
                 subtotal = subtotal+ itemtotal;
                 
+                custOrder += Item +", ";
+                
                 orderDetail.setColid(++id);
                 orderDetail.setColname(Item);
                 orderDetail.setColqty(qty);
@@ -263,7 +289,7 @@ public class Order1Controller implements Initializable {
             
                 tableView.getItems().add(orderDetail);
                 
-                txtsubtotal.setText(Integer.toString(subtotal)); 
+               calculateTax();
             
         } catch (RemoteException ex) {
                 ex.printStackTrace();
@@ -283,6 +309,8 @@ public class Order1Controller implements Initializable {
                 itemtotal = qty*price;
                 subtotal = subtotal+ itemtotal;
                 
+                custOrder += Item +", ";
+                
                 orderDetail.setColid(++id);
                 orderDetail.setColname(Item);
                 orderDetail.setColqty(qty);
@@ -291,7 +319,7 @@ public class Order1Controller implements Initializable {
             
                 tableView.getItems().add(orderDetail);
                 
-                txtsubtotal.setText(Integer.toString(subtotal)); 
+                calculateTax(); 
             
         } catch (RemoteException ex) {
                 ex.printStackTrace();
@@ -311,6 +339,8 @@ public class Order1Controller implements Initializable {
                 itemtotal = qty*price;
                 subtotal = subtotal+ itemtotal;
                 
+                custOrder += Item +", ";
+                
                 orderDetail.setColid(++id);
                 orderDetail.setColname(Item);
                 orderDetail.setColqty(qty);
@@ -319,7 +349,7 @@ public class Order1Controller implements Initializable {
             
                 tableView.getItems().add(orderDetail);
                 
-                txtsubtotal.setText(Integer.toString(subtotal)); 
+                calculateTax(); 
             
         } catch (RemoteException ex) {
                 ex.printStackTrace();
@@ -339,15 +369,19 @@ public class Order1Controller implements Initializable {
                 itemtotal = qty*price;
                 subtotal = subtotal+ itemtotal;
                 
+                custOrder += Item +", ";
+                
                 orderDetail.setColid(++id);
                 orderDetail.setColname(Item);
                 orderDetail.setColqty(qty);
                 orderDetail.setColprice(price);
                 orderDetail.setColItemcost(itemtotal);
-            
-                tableView.getItems().add(orderDetail);
                 
-                txtsubtotal.setText(Integer.toString(subtotal)); 
+                tableView.getItems().add(orderDetail);
+            
+                calculateTax();
+                
+               
             
         } catch (RemoteException ex) {
                 ex.printStackTrace();
@@ -365,19 +399,32 @@ public class Order1Controller implements Initializable {
         {
            try
             {
-                LoginController logi = new LoginController();
+                
+                //String staff = loginController.GetStaff();
+                
                 Order order = new Order();
                 order.setCustomer_name(txtcustname.getText());
                 order.setCustomer_no(Long.valueOf(txtcustphone.getText()));
-                order.setStaff_id(logi.Staff_Id);
+                order.setOrders(custOrder);
+                order.setBill(totalamt);
+                order.setOrder_date(orderDate.getValue());
+                order.setStaff_id("pk0143");
+                order.setOrder_status("Done"); 
 
                 order= orderService.insertOrder(order);
 
                 //tableView.getItems().add(menu);
 
                 clearFields();
+                
+                /*Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.initModality(Modality.APPLICATION_MODAL);
+                alert.setTitle("Invalid Fields");
+                alert.setHeaderText("Enter all the fields");
+                alert.setContentText();
+                alert.showAndWait();*/
             }
-            catch(RemoteException ex)
+            catch(Exception ex)
             {
                 ex.printStackTrace();
             }  
@@ -401,12 +448,18 @@ public class Order1Controller implements Initializable {
             id--;
             subtotal = subtotal - orderDetail.getColItemcost();
             
-            txtsubtotal.setText(Integer.toString(subtotal));
+            calculateTax();
+            
+            String delitem = orderDetail.getColname() + ",";
+            
+            custOrder= custOrder.replaceAll(delitem, "");
         
     }
 
     @FXML
     private void onClear(ActionEvent event) {
+        
+        clearFields();
     }
     
     public void addqtylist()
@@ -440,6 +493,8 @@ public class Order1Controller implements Initializable {
             registry = LocateRegistry.getRegistry("localhost", 52360);
             menuService = (MenuService) registry.lookup("menuservice");
             orderService = (OrderService) registry.lookup("orderservice");
+            taxService = (TaxService) registry.lookup("taxservice");
+            
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -524,6 +579,15 @@ public class Order1Controller implements Initializable {
         txtsubtotal.setText("");
         txttax.setText("");
         txtamt.setText("");
+        orderDate.setValue(null); 
+        custOrder = "";
+        subtotal = 0;
+        id = 0;
+        
+        tableView.getItems().clear();
+        
+        comboburger.setValue("Choose Burger");
+        
     }
     
     
@@ -554,6 +618,41 @@ public class Order1Controller implements Initializable {
             alert.setContentText(errorMessage);
             alert.showAndWait();
             return false;
+        }
+    }
+    
+    void FromStaff(String Staff_id)
+    {
+        this.Staff_id = Staff_id;
+    }
+    
+    void calculateTax()
+    {
+        try {
+            List<Tax> list = new ArrayList<Tax>();
+           
+           //int tax=0;
+           
+           list = taxService.getAllTax();
+           
+           for(int i = 0; i<list.size();i++)
+            {
+                Tax element = list.get(i);
+                
+                tax = element.getGst();
+            }
+
+            taxamt = (tax * subtotal)/100;
+            totalamt = subtotal+taxamt;  
+            
+            txtsubtotal.setText(Integer.toString(subtotal)); 
+            
+            txttax.setText(Integer.toString(taxamt));
+            
+            txtamt.setText(Integer.toString(totalamt));
+            
+        } catch (RemoteException ex) {
+            ex.printStackTrace();
         }
     }
     

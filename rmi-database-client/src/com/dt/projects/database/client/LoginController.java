@@ -72,7 +72,7 @@ public class LoginController implements Initializable {
                 login.setStaff_id(txtlogid.getText());
                 login.setStaff_pass(txtpass.getText());
                 
-                Staff_Id = txtlogid.getText();
+                Staff_Id = loginService.getLoginId(login);
 
                 boolean result = loginService.getLoginById(login);
 
@@ -80,13 +80,23 @@ public class LoginController implements Initializable {
                 {
                     if("admin".equals(txtlogid.getText()) && "admin".equals(txtpass.getText()))
                     {
-                        AnchorPane pane = FXMLLoader.load(getClass().getResource("adminPage.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("adminpage.fxml"));
+                        AnchorPane pane = loader.load();
                         loginPage.getChildren().setAll(pane);
                     }
                     else
                     {
-                        AnchorPane pane = FXMLLoader.load(getClass().getResource("staffpage.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("staffpage.fxml"));
+                        AnchorPane pane = loader.load();
+                        
+                        Order1Controller order1Controller = new Order1Controller();
+                        
+                        order1Controller.FromStaff(Staff_Id);                       
+                        
+                        //AnchorPane pane = FXMLLoader.load(getClass().getResource("staffpage.fxml"));
                         loginPage.getChildren().setAll(pane);
+                        
+                        
                     }
                     
                     
@@ -159,5 +169,10 @@ public class LoginController implements Initializable {
             return false;
         }
     }
+    
+    /*String GetStaff()
+    {
+        return Staff_Id;
+    }*/
     
 }

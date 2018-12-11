@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="564.0" prefWidth="1372.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dt.projects.database.client.TaxController">
+   <children>
+      <Pane prefHeight="570.0" prefWidth="1401.0" style="-fx-background-color: #c0c0c0;">
+         <children>
+            <Label alignment="CENTER" layoutX="203.0" layoutY="220.0" prefHeight="66.0" prefWidth="445.0" style="-fx-background-color: #c0c0c0;" text="Enter a New GST">
+               <font>
+                  <Font name="Cambria Bold" size="50.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtgst" alignment="CENTER" layoutX="652.0" layoutY="213.0" prefHeight="62.0" prefWidth="197.0" style="-fx-background-color: #c0c0c0;">
+               <font>
+                  <Font name="Cambria Bold" size="30.0" />
+               </font>
+            </TextField>
+            <Separator layoutX="654.0" layoutY="276.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+            <Button layoutX="590.0" layoutY="362.0" mnemonicParsing="false" onAction="#onConfirm" prefHeight="56.0" prefWidth="191.0" style="-fx-background-color: #808080;" text="CONFIRM" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="285.0" layoutY="115.0" prefHeight="62.0" prefWidth="335.0" style="-fx-background-color: #c0c0c0;" text="Current GST">
+               <font>
+                  <Font name="Cambria Bold" size="50.0" />
+               </font>
+            </Label>
+            <Separator layoutX="669.0" layoutY="178.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+            <TextField fx:id="txtcurrentgst" alignment="CENTER" layoutX="675.0" layoutY="115.0" prefHeight="62.0" prefWidth="197.0" style="-fx-background-color: #c0c0c0;">
+               <font>
+                  <Font name="Cambria Bold" size="30.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

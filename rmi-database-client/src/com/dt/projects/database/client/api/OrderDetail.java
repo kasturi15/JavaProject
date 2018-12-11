@@ -33,7 +33,6 @@ public class OrderDetail {
     public IntegerProperty colItemcostProperty() {
         return colItemcost;
     }
-    
 
     public int getColprice() {
         return colprice.get();

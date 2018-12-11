@@ -52,13 +52,6 @@ public class StaffpageController implements Initializable {
     }
 
     @FXML
-    private void onPendingOrder(Event event) throws IOException {
-        
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("pendingorder.fxml"));
-        adminStage.getChildren().setAll(pane);
-    }
-
-    @FXML
     private void onBill(Event event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("adminbill.fxml"));
         adminStage.getChildren().setAll(pane);

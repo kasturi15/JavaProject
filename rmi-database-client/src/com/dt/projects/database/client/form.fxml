@@ -62,7 +62,7 @@
             </Button>
          </children>
       </Pane>
-      <TableView fx:id="tableView" layoutX="155.0" layoutY="254.0" prefHeight="308.0" prefWidth="1048.0">
+      <TableView fx:id="tableView" layoutX="155.0" layoutY="254.0" prefHeight="279.0" prefWidth="1048.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="colName" prefWidth="430.0" text="ITEM NAME" />

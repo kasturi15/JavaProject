@@ -25,7 +25,6 @@
             <TabPane layoutY="74.0" prefHeight="31.0" prefWidth="1285.0" style="-fx-background-color: #c0c0c0;" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab onSelectionChanged="#onTakeOrder" style="-fx-background-color: #808080;" text="     TAKE ORDER     " />
-                <Tab onSelectionChanged="#onPendingOrder" style="-fx-background-color: #808080;" text="     PENDING ORDER     " />
                   <Tab onSelectionChanged="#onBill" style="-fx-background-color: #808080;" text="       BILL SUMMARY       " />
               </tabs>
             </TabPane>

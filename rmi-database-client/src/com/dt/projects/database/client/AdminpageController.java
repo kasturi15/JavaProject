@@ -71,7 +71,7 @@ public class AdminpageController implements Initializable {
     @FXML
     private void onTax(Event event) throws IOException {
         
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("taxupdate.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("tax.fxml"));
         adminStage.getChildren().setAll(pane);
         
     }
